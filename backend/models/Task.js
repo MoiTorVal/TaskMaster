@@ -23,3 +23,7 @@ const taskSchema = new mongoose.Schema({
     default: false, // Default status is false (not completed)
   },
 });
+
+const Task = mongoose.model("Task", taskSchema);
+
+module.exports = Task;
