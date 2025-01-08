@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const app = express();
 
 const Task = require("../models/Task");
 
@@ -28,7 +27,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// GET
+// GET all tasks
 router.get("/", async (req, res) => {
   try {
     const tasks = await Task.find();
@@ -38,7 +37,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET with :ID
+// GET with :ID individual
 router.get("/:id", async (req, res) => {
   const taskId = req.params.id;
 

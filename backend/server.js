@@ -23,12 +23,15 @@ app.use(express.json()); // Parses incoming JSON request
 
 // routes
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.send("home page");
 });
 
 app.use("/tasks", tasksRoutes);
 
-// server
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+  });
+}
+
+module.exports = app;
