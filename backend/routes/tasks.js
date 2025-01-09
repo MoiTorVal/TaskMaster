@@ -7,26 +7,6 @@ const Task = require("../models/Task");
 // Middleware to parse incoming JSON data
 router.use(express.json());
 
-// POST
-router.post("/", async (req, res) => {
-  const { title, description, dueDate, priority, completed } = req.body;
-
-  const newTask = new Task({
-    title: title,
-    description: description,
-    dueDate: dueDate,
-    priority: priority,
-    completed: completed,
-  });
-
-  try {
-    await newTask.save(); // save new task to database
-    res.status(201).json(newTask);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
 // GET all tasks
 router.get("/", async (req, res) => {
   try {
@@ -49,6 +29,26 @@ router.get("/:id", async (req, res) => {
     res.status(200).json(task); // Only send the response here
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+// POST
+router.post("/", async (req, res) => {
+  const { title, description, dueDate, priority, completed } = req.body;
+
+  const newTask = new Task({
+    title: title,
+    description: description,
+    dueDate: dueDate,
+    priority: priority,
+    completed: completed,
+  });
+
+  try {
+    await newTask.save(); // save new task to database
+    res.status(201).json(newTask);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 });
 
