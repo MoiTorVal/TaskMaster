@@ -79,29 +79,29 @@ describe("Tasks API", () => {
   });
 
   // PATCH
-  // it("should update a task", async () => {
-  //   const taskId = "677b734f04cbfe026d7c919b";
-  //   const updates = {
-  //     title: "Updated Task",
-  //     description: "Updated Description",
-  //     priority: "Low",
-  //     completed: true,
-  //   };
+  it("should update a task", async () => {
+    const taskId = "677b734f04cbfe026d7c919b";
+    const updates = {
+      title: "Updated Task",
+      description: "Updated Description",
+      priority: "Low",
+      completed: true,
+    };
 
-  //   const res = await request(app).patch(`/tasks/${taskId}`).send(updates);
+    const res = await request(app).patch(`/tasks/${taskId}`).send(updates);
 
-  //   expect(res.statusCode).toEqual(200);
-  //   expect(res.body).toEqual(
-  //     expect.objectContaining({
-  //       _id: taskId.toString(),
-  //       title: "Updated Task",
-  //       description: "Updated Description",
-  //       dueDate: expect.any(String), // Assuming dueDate is not updated
-  //       priority: "Low",
-  //       completed: true,
-  //     })
-  //   );
-  // });
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toEqual(
+      expect.objectContaining({
+        _id: taskId.toString(),
+        title: "Updated Task",
+        description: "Updated Description",
+        dueDate: expect.any(String), // Assuming dueDate is not updated
+        priority: "Low",
+        completed: true,
+      })
+    );
+  });
 
   // DELETE
   it("should delete a task", async () => {
