@@ -27,7 +27,7 @@ app.use(express.json()); // Parses incoming JSON request
 
 // routes
 app.get("/", (req, res) => {
-  res.send("home page");
+  res.send("Home Page");
 });
 
 app.use("/tasks", tasksRoutes);
