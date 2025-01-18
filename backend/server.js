@@ -32,6 +32,12 @@ app.get("/", (req, res) => {
 
 app.use("/tasks", tasksRoutes);
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
+});
+
 if (process.env.NODE_ENV !== "test") {
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
