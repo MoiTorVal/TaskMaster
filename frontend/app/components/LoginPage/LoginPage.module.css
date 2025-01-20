@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+.header {
+  margin-bottom: 1rem; /* Add space below the heading */
+  font-size: 2rem;
+  color: #333;
+  text-align: center; /* Center-align the text */
+}
